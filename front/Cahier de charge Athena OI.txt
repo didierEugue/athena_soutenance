@@ -1,0 +1,221 @@
+Cahier de charge Athena OI
+
+ATHENA – OI
+l’APPLICATION « APK »
+Cahier de charges 
+
+Menu principal. 
+Préambule : L’application fonctionnera sous ANDROID, IOS pour les phones et sur le WEB pour les PC portables ou de bureau  
+Sur la page d’accueil principale de l’application ( APK )s’affichent les onglets suivants. 
+-	A : Administrateurs ( Fonctions accessibles par la Direction et le BET )  
+-	B : Paramètres Intranet (PA) 
+-	C : Les Ordres de Fabrications (OF)  
+-	D :  Rapport Journalier d’activités ( RJA)  
+-	E : Messagerie Intranet (MES) 
+-	F : Agenda (A) 
+A	: Administrateur (Onglet accessible par la direction et/ou le BET)  
+De l’onglet Administrateur s’affichent trois sous-menus « Utilisateurs/Statistiques/Commandes » 
+Utilisateurs : Le menu « administrateurs » gère les accès des utilisateurs en y autorisant ou pas certaines fonctions de l’APK  
+Statistiques. De ce sous menu, l’administrateur édite toutes les statistiques détaillées de l’APK 
+Chiffrage estimatif des commandes : De cet onglet accessible de la page principale, le BET entre le chiffrage des commandes de matières, de quincailleries, d’accessoires. Ces achats spécifiques à chaque production viennent impacter le revient final de chaque production. Le BET dispose déjà de ces informations puisque nous les estimons, via un fichier, avant de rendre notre réponse aux AO 
+B	: Paramètres Intranet (Onglet accessible par la direction et/ou le BET)  
+Dans ce menu, on a deux onglets 
+COLLABORATEUR 	et   ATELIER 	 	 
+COLLABORATEUR 	 
+1/ Création d’un nouveau profil  
+2/- Modification d’un profil 
+Création :  
+►Nom :                         ►Prénom :            
+ ►Qualification :   T. 	OS. 	M. 	(T = Technicien ; OS = Ouvrier Spécialisé ; M = Manœuvre) 
+►Accès APK : A ce stade, on doit lui définir des autorisations d’accès aux menus de l’APK 
+►Mot de passe. (On lui attribue un mot de passe et s’il change son mot de passe, on peut le consulter dans sa fiche collaborateur pour le lui rappeler si perte) 
+Modification : Pourvoir revenir sur un profil déjà créé pour le modifier ou supprimer ou tous accès  
+ 
+ATELIER 	 
+Dans cet onglet, on gère les paramètres permettant de facturer le travail fait par collaborateur dans l’atelier et sur site client pour les poseurs . 
+En effet, tous les soirs, on a un rapport à envoyer à la direction et ce rapport fait part des différents types d’heures de travail effectuées dans la journée : Quel collaborateur a fait ce travail et sur quelle affaire il a travaillé ?  
+Lorsque le travail pour ce client est  complètement terminé, cela nous donnera un revient total de la main d’œuvre et de frais d’atelier ou d’installation sur une  affaire . 
+Au-delà de suivre le travail de chacun tous les jours, on aura aussi un contrôle permanent sur les couts engendrés par chaque affaire. A partir du moment ou nous sommes retenus , les charges s’accumulent jusqu’à la livraison finale  
+Ainsi, lors d’un prochain devis ou appel d’offre et en fonction des revients déjà obtenus sur une affaire identique, on devra ou pourra réajuster le prix de vente 
+Les paramètres permettant de chiffrer journellement de suivre ce revient sont (A* B) 
+A/ Les différentes tâches facturables que peuvent faire les collaborateurs (en production, en installation ou d’autres taches)  
+o	Heure de découpe (HD) o Heure d’usinage (HU) o Heure de placage et de ponçage (HPP) o Heure de travail sur la résine (HTR) o Heure de montage atelier(HMA) o Heure de nettoyage, emballage avant livraison (HNE) o Heure de chargement et livraison (HCL) o Heure bureau de méthodes (HB)  o Heure entretien Machines ( HEM)  Non facturable directement à un OF o Heure nettoyage Atelier ( HNA)   Non facturable directement à un OF o Heure de rangement Atelier ( HRA)  Non facturable directement à un OF o Heure de visite sur site client ( HVSC) o Heure de formation client ( HFC) o Heure de montage sur site client ( HMSC) o Heure de levée de réserves ( HLR) 
+o	Heure de GPA et de réception de travaux ( HGPA-RT) 
+Dans ce menu atelier, on va créer les différentes heures facturables dans le menu « RJA » 
+On peut considérer ces différentes heures comme des fiches articles et évidement, c’est à la création de chaque fiche horaire que l’on donne un cout horaire à cet article .  
+Une heure de découpe (HD) par une machine simple n’a pas le même cout qu’une heure d’usinage           (HU) effectuée par une machine à commande numérique . 
+B/ Niveau de qualification 
+C’est un autre paramètre qui vient impacter le cout de revient de production, d’installations ou de taches diverses  
+Dans la fiche COLLABORATEUR, on a renseigné son niveau de qualification  
+T : Technicien, OS : Ouvrier Spécialisé, Manœuvre : M 
+T :  	cout de l’heure effectuée H x 1.5 
+OS : 	cout de l’heure effectuée H x 1 
+M :  	cout de l’heure effectuée H x 0,8 
+Ce qui veut dire qu’un collaborateur ayant un profil T et qui effectue une tache horaire dont le tarif de base horaire est de 100€, verra son travail valorisé par un coef de 1,5. 
+Ex1. Un collaborateur T   a travaillé 4 heures = 4*100 *1,5 = 600 
+Ex2. Un collaborateur M   a travaillé 4 heures = 4*100 *0,8 =320€ 
+Ces informations seront utilisées dans la rubrique « RJA » Rapport journalier d’activité 
+C: Les  affaires validées ( OF)  
+Quand on est retenu à une consultation, on doit faire le PAC (Plan d’Atelier et de Chantier) qui définit toutes les procédures d’atelier et de chantier que l’entreprise doit mettre en œuvre pour réaliser le marché.  
+Le feu vert , dès qu’il est obtenu sur ces plans, soit  par l’architecte ou le client, le BET interne va alors créer une fiche « OF( ordre de fabrication)  validée ». Cette OF est alors visible via leur phone ou via un PC par tous les collaborateurs avec toutes les pièces jointes et détails nécessaire pour l’exécuter la production ou pour travailler sur site client. 
+1-Saisie des OF validées. Dans ce fichier accessible que par le BET, il donne un nom à l’affaire.  Ce nom sera repris dans le menu RJA. Le BET peut joindre à ce fichier d’OF tous les plans PDF permettant de fabriquer, des annotations techniques, des plans de fournisseurs pour une quincaillerie spécifique, etc etc  
+2-Affichage des OF validées. Fichier accessible à TOUS. On a alors l’affichage des affaires validées par le BET qui s’affichent à l’écran.  En cliquant sur le nom de l’affaire, on peut produire et installer. En effet , dans l’OF correspondante, le BET doit aussi indiqué les détails pour les poseurs ( plan de localisation des ouvrages à installer, détails techniques de pose etc etc )  
+Le fichier des affaires validées est la source, la référence du travail validé par les clients. Toute affaire obtenue , mais encore validée techniquement par le client n’est pas dans ce menu  
+En cours d’exécution si le client modifie une prestation, le BET est le seul à pouvoir le faire en redéposant des plans etc etc sous un indice N°2 
+D-RJA (Rapport journalier des activités) 
+(Mesures des activités en atelier et sur site client) 
+ACTIVITES en ATELIER 
+Objectif   Contrôle journalier des activités de production des ateliers Cette fonction déclenche une facturation interne de l’atelier pour chaque production.  En effet, l’atelier ou le poste de production est considéré comme une unité économique et on doit pouvoir mesurer son apport à la société et cela, à travers une facturation interne qu’elle est en mesure de faire tous les mois pour chaque commande en exécution ou OF 
+Méthodes de saisies des données pour alimenter cette facturation interne 
+Rappel. Tout ce qui doit être produit en atelier fait d’abord l’objet d’un OF validé (Ordre de Fabrication) émanant du BET (Bureau d’Etudes Interne) 
+En allant dans ce fichier RJA toutes les affaires validées s’affichent, on sélectionne une affaire sur laquelle, on va imputer par tranche d’une demi-heure, tout le travail effectué de la journée  
+La saisie journalière des heures facturables se faisant donc ainsi. 
+Saisie du rapport d’activités sur les OF  
+-	Affichage des OF via un menu déroulant  
+-	En cliquant sur une des affaires, on y ouvre une page où on peut, par tranche d’une demi-heure y saisir les différentes heures affectées sur cette affaire (Voir fiche N°) 
+-	Tant que l’affaire n’est pas clôturée, on y a accès. En effet, une affaire pourrait rester plusieurs mois en phase de production.  
+-	À tout moment, la direction ou le BET pourront éditer la fiche cumulative de revient par affaire et cela via la fonction « STATISTIQUES » du menu « Administrateur » 
+-	Quand tout est fabriqué pour une affaire, le chef d’atelier clôture alors l’OF en allant dans un onglet « fin de production » que lui seul ou la direction peut activer. A ce moment, on a alors une fiche cumulative et définitive des couts de productions pour cette affaire.  
+La saisie des heures journalières concerne aussi des heures non facturables qui ne sont pas directement imputés à une affaire en production, mais de façon globale et au prorata temporis sur toutes les OF du mois . Il en est ainsi des heures suivantes que chaque collaborateur saisit tous les jours  
+-	HEM . Heure Entretien machine 
+-	HNA   Heure Nettoyage Atelier  
+-	HRA     Heure Rangement Atelier  
+Le cumul mensuel de ces heures donnera à la direction, un cout indirect. Ce cout indirect va se rajouter au revient de chaque affaire par une clef de répartition à définir mensuellement et manuellement. 
+ACTIVITES SITE CLIENT 
+Ce sous menu va donc ouvrir deux sous onglets :
+-	Affaire sous OF.  - 	Affaire hors OF : 
+Affaire sous OF : Nos collaborateurs ont aussi pour mission 
+-	D’aller contrôler des travaux préalables effectuées par certains corps d’états avant que nous n’intervenions. Ainsi, on doit envoyer nos collaborateurs faire un contrôle des attentes, un contrôle du respect des consignes que nous avons donné au responsable du chantier afin que nos prochaines installations se fassent conformément au marché  
+ 
+-	On utilise aussi cette fonction RJA lorsque nos collaborateurs de déplacent pour faire de la pose, du SAV, des réglages, de la formation etc etc .Pour saisir ce qui se fait en extérieur, ils doivent avoir accès à la bibliothèque des OF en cours d’exécution, y saisir les heures qui sont spécifiques aux poseurs , y adjoindre des photos, une annotation etc etc  
+ 
+-	Si une affaire est toujours sous OF, tous les couts de ces interventions extérieurs s’ajoutent au revient final de ce dossier non terminé. 
+Affaire hors OF :  
+-	On peut aussi les faire déplacer chez un client qui souhaite un passage avant que nous ne fassions un devis et bien sûr avant qu’il ne devienne un client sous OF.  Dans ce cas, l’accès à la bibliothèque des affaires en cours ne comprendra ni l’OF ni les coordonnées de ce client, alors, on doit , alors, avoir la possibilité de remplir des coordonnées clients pour l’édition du rapport. 
+Rapport de suivi  
+-	Les collaborateurs qui nous font des rapports soit sous OF ou hors OF , auront la possibilité d’envoyer via la fonction Messagerie de  l’APK des rapports au BET ? aux ateliers ? à la direction ?  . Ces derniers, lorsqu’ils ouvrent leur APK , auront une alerte comme  « Vous avez reçu un nouveau message » La gestion de ce message par l’APK suivra ce qui est décrit dans les fonctions de la Messagerie Interne Professionnelle .  
+ 
+-	En effet, les déplacements sur site clients déclenchent toujours une action à suivre ou à contrôler. Tout envoi d’un rapport s’affichera aussi sur l’APK de la direction pour contrôler le suivi qui est à faire par le destinataire du message. 
+ 
+-	Ainsi, lors des réunions  (Direction/Collaborateurs) si le sujet lié à cette visite sur site est clôturé, alors la direction archive le sujet, mais sans l’annuler. Sans l’annuler car on doit pouvoir revenir sur un sujet traité par une visite sur site client. EXEMPLE. Si lors de cette visite il a décidé de fabriquer avec une particularité tel ou tel mobilier et que cela ne se fait finalement pas, on doit pouvoir en rechercher la cause et la responsabilité  
+ 
+-	Et si i le sujet n’est pas clôturé, la direction doit pouvoir mesurer que les mesures soient prises pour donner satisfaction pour ensuite clore le sujet ultérieurement. 
+Statistiques. 
+La saisie de ces rapports journaliers d’activités se contrôlent via la fonction « statistiques » du menu administrateur. On doit pouvoir obtenir les éditer  
+-	Via un onglet « Activités par collaborateur » 
+-	Via un autre onglet « Activités par affaire » 
+Quand on va sur ces onglets, on peut extraire  
+-	Le travail de toute la journée effectuée par collaborateur. Sur quoi a t’il travaillé ce jour ? Cette semaine ? Ou sur une durée précise ? 
+-	Le travail total du jour effectué pour telle affaire. Qui a fait quoi sur cette affaire pour cette journée 
+D’autre part, en termes de statistiques, de ce même fichier, on doit pourvoir aussi  
+-	Extraire toutes les tâches effectuées par un collaborateur sur une période XX jours. On aura le détail de ce qu’il a fait et pour quelle affaire l’a-t-il fait sur la période concernée  
+-	Ou avoir l’évolution complète des taches effectuées pour une affaire précise sur une période de X X jours . Qui a fait quoi sur cette affaire sur la période demandée  
+Tous ces deux fichiers pourront être envoyés vers l’imprimante du poste sur lequel on travaille.  
+EXEMPLE 1 : 
+Dans cet exemple n° 1, nous commençons à travailler sur ce dossier le 19/04 et nous terminons totalement le jour même. Il n’y aura donc qu’un seul rapport sur cette affaire. Il n’y aussi qu’un seul collaborateur qui a bossé pour ce client. 
+Rapport d’activité du 19/04/14 
+Collaborateur(s) : 	 	CYRIL :  
+Affaire : OF : Lycée Brassens Commande n°1356 
+HD :   1 h * 100€ * T   = 150 € 
+HU : 1.5h * 150€ * T  = 337,5 € 
+ HP :     2h * 80€ * T  =  240 € 
+ HM :    1h * 70€ * T  =  105 € 
+Cout total main d’œuvre          = 832,50€  
+Sans compter les achats de matières et d’accessoires, nous avons donc un cout total main d’œuvre pondéré par le niveau de qualification de Cyril (T=1,5) 
+EXEMPLE N°2 : 
+ L’affaire commence le 19/04 et se poursuit le lendemain. Un autre collègue vient le 20/04, aider Cyril à terminer ce travail. Les rapports pour ce dossier seront donc. 
+ Rapport journalier d’activité du  19/03/14 
+Affaire : OF- Lycée Brassens Commande n°1356 
+Collaborateur(s)      CYRIL  	 
+ HD = 1h x 100 € x T 
+HU = 1.5h x 150 € x T 
+HP = 2h x 80 € x T 
+ HM = 1h x 60€ x T 
+Pour cette journée du 19/04, il n’y a que Cyril qui a bossé sur ce dossier et l’affaire n’est pas terminée  
+Rapport journalier d’activité du  20/03/14 
+Affaire : OF- Lycée Brassens Commande n°1356 
+Collaborateur (s)   CYRIL  
+HM = 1h * T 
+HP=2h * T 
+Collaborateur(s)    DIDIER  
+HM = 2h * M 
+HN = 2H * M HL=2H * M 
+Dans cette seconde journée du 20/04, deux collègues ont continué à bosser sur ce dossier. On édite le rapport journalier par affaire en indiquant les heures des différents collaborateurs ayant travaillés sur ce dossier. 
+Dans le cas n° 2, on commence par Cyril et ensuite on note toutes les heures faites par Didier sur ce dossier. Si à la fin de la saisie sur ce dossier, on indique que l’affaire est terminée. 
+Comme l’affaire est terminée Le système édite alors un état récapitulatif du 19 /04 et du 20/04 des heures par collaborateur, Ensuite il y a un total chiffré par jour et un total général.  
+ 
+C : Messagerie interne Professionnelle  
+Objectif.  
+-	Mettre en place un système de messagerie interne pour résoudre tous les pbs quotidiens entre les collaborateurs dans les fonctions qu’ils exercent tant en interne ou en externe (les clients ou les fournisseurs) 
+-	C’est donc un circuit d’informations strictement professionnelles entre tous les membres du réseau interne 
+-	Le système doit permettre aussi à la direction de s’assurer de bon suivi de chaque demande et de son exécution par le destinataire du message 
+Chaque demande doit être bien identifiée dans un formulaire imposé à tous les utilisateurs de la messagerie. Les champs imposés seront  
+-	Champ « demandeur »   
+-	Champ « destinataire »   
+-	Champ «  Copie à »   
+-	Champ « Objet »   
+-	Champ « date d’envoi » 
+-	Champ « Heure d’envoi »  
+-	Et évidement un cadre pour exposer le problème ou apporter la réponse  
+ 
+➢	L’objet sera une référence non modifiable à partir de l’envoi du message et lors des réponses apportées. En effet, ce champ servira, par exemple, à faire des recherches sur un sujet résolu et archivé auquel, on a déjà apporté une réponse.  
+ 
+➢	Quand on est dans le Champ « Objet », le système doit proposer des sujets type tel 
+ 
+Demande de chiffrage- Ordre de fabrication- Rapport de visite- Contrôles des attentes - besoins atelier/ etc etc ). Dans le cas d’une demande de chiffrage qui fait suite à une demande de client, la demande sera numérotée. En effet, il peut y avoir plusieurs demandes en cours pour une même affaire.  
+ 
+Pour les besoins d’achats ou de réapprovisionnement, le demandeur doit citer en sous-objet, pour quelle raison, il fait cette demande ? Pour un chantier ? Lequel ? Pour réapprovisionner le stock de son camion d’intervention ? Pour le stock central ?  
+ 
+Que ce soit en envoi comme en réception, ce système interne doit pouvoir offrir toutes les fonctions classiques d’une messagerie dont surtout l’insertion de pièces jointes (plans PDF, devis courriers divers) Chaque demande ou réponse apportée doit être daté. 
+La particularité de cette Messagerie Interne Professionnelle, c’est que la direction garde la main sur le suivi des messages et de leurs réponses. Il s’agit de suivre la bonne exécution des procédures internes dans les différents services. D’éviter les conflits entre collaborateurs en y apportant, si besoin, une aide à la solution 
+Le suivi de la messagerie permet de savoir qui bloque ou qui ne donne pas suite. Ou depuis quand l’info ou la réponse est attendu ?  Qui donc laisse-en suspens et/ou n’agit pas ?  
+Tout sujet lancé sur la messagerie interne doit être résolu par graduation  
+-	Entre l’émetteur et le destinataire dans un premier temps.  
+-	Entre l’émetteur, le destinataire et celui ou ceux qui sont en copie  
+-	Entre l’émetteur, le destinataire et la direction si le PB persiste  
+Quand le message est envoyé, il vient incrémenter un fichier des demandes en cours qui s’affiche dans le menu ‘Messagerie’ 
+-	Du demandeur 
+-	Du destinataire 
+-	De celui qui est en copie - 	Copie à la direction 
+Chaque réponse apportée vient se greffer au message initial avec en suivi les réponses obtenues depuis la demande  
+Dans ce fichier messagerie des « demandes en cours », on a un classement par collaborateur (celui qui a initié le message) et par date. En cliquant sur un des messages de la liste, on a l’historique de la demande (le message initial), la ou les réponses déjà apportées, ainsi que toutes les pièces jointes ajoutées à la demande ou aux réponses effectuées sur cette demande  
+Evidement celui qui a initié le message a dans sa BAL le message qu’il a envoyé et les réponses qu’il a reçues sur cette demande. Dans sa BAL, il n’a que les messages dont il est l’initiateur ou les messages pour lesquels, il doit lui-même apporter une réponse. (Demandes qu’il a reçu de ses autres collègues ou de la direction)  
+Quand l’initiateur d’une demande estime que la ou les réponses apportées mettent un point final à sa requête, il demande l’archivage. 
+Cette demande d’archivage est envoyée dans la messagerie de la direction et cela dans un fichier « demande d’archivage ». La direction prend alors connaissance si les éléments de réponse sont Ok et si le sujet est clos, alors elle valide l’archivage.  
+Le sujet est donc traité car la demande a été suivie avec succès, le client a obtenu sa réponse, le sujet technique est résolu, Lé détail technique pour installer a été reçu, les pièces sont bien en commandes etc etc etc . Bref la circulation d’informations entre collaborateurs s’est faite pour apporter une réponse  
+L’archivage validé par la direction va faire en sorte que dans les BAL de l’initiateur du message et du destinataire et de ceux qui sont en copie du message, il y aura un effacement de ce message et de ses réponses apportées sur leurs postes respectifs 
+Le message et ses réponses qui étaient en copie dans la messagerie de la direction « Onglet demande en cours » va passer dans un onglet « Archivage messagerie » qui ne reste, alors accessible que via le poste de la direction, pour résoudre un prochain sujet identique qui aurait déjà été résolu. 
+Dans ce circuit archivage, le système doit classer les messages par Collaborateur, nom de l’Affaire et par date de demande.  
+Cela permet de retrouver une information déjà donnée à un problème qui se renouvelle (schémas, un plan, un devis type, une réponse technique etc etc ) En visualisant l’ancien message , on pourrait avoir de suite la réponse au problème récurrent  
+S’il s’agit d’un sujet archivé banal et non important ou qui ne risque pas de reproduire, la direction peut demander du ficher archivage, la destruction définitive du message (Poubelle)  
+Important. Lorsqu’un membre se connecte sur l’intranet via ses codes, il est de suite alertée sur l’état de sa messagerie sur l’écran principal de son intranet par les alertes suivantes  
+ « Vous avez un ou des nouveaux messages » 
+« Vous avez X anciens messages en attente de réponses de votre part » 
+E.Agenda  
+Deux fonctions essentielles  
+-	1- Gestion des plannings de RDV pour les chantiers  
+-	2-Consignes de la Direction  
+-	3-Consignes personnelles  
+-	4-Impressions agenda et listing des consignes  
+1-Compte rendu de Chantier /Agenda de RDV  
+Nous sommes envahis tous les jours par la réception de rapports de chantier, soit de l’OPC , de la MOE ou du client lui-même. A la lecture de ces rapports, on se doit de donner une suite, faute de quoi il y aura une sanction financière, une perte de confiance, une perte des marchés  
+La lecture de tous ces rapports est de la responsabilité de Gilles. Si un collaborateur ou la direction est convoqué, il valide le RDV et cela génère ou alimente un agenda personnel. Chaque collaborateur doit pouvoir éditer son agenda hebdomadaire de RDV  
+Gilles éditera tous les vendredis AM, l’agenda central regroupant tous les RDV de la semaine à venir. Ce document sera affiché dans l’atelier  
+ 
+2-Consignes de la Direction :  
+Si à la lecture des comptes rendus de chantier, un sujet est urgent et qu’il ne s’agit pas de venir à un RDV, Gilles doit via la fonction « Consignes de la Direction » adresser un message, alerter, donner une information, parler du sujet attendu  
+Il insèrera dans ce sous menu « Consignes de la Direction » des alertes afin que la tâche s’affiche à J-3 et J-2 sur l’écran du destinataire 
+Le jour J , toutes les alertes s’afficheront aussi sur l’écran de Gilles qui aura pour mission de suivre l’exécution par le collaborateur de ce qui est demandé et attendu par le message envoyé  ?  
+Toutes alertes émises par l’APK incrémentent aussi un fichier dans la messagerie de la Direction sous l’onglet « Alertes Consignes non suivies » 
+Toute consigne résolue avant ou après l’émission d’une alerte passe en phase « exécuté » par le destinataire du message. 
+Ainsi, tant à la fois Gilles ou la direction, n’aurons pas à suivre l’exécution de toutes les consignes, mais uniquement les consignes restantes sous alertes. 
+3-Consignes Personnelles-Fonction Post-it  
+Cette messagerie doit aussi permettre de noter une alerte à soi meme d’une tache à faire, une consultation à répondre pour telle date, un sujet à traiter, une maintenance à faire sur une machine, un rdv tel important ne concernant pas un RDV de chantier, une commande à passer, etc etc  
+Cette sous fonction dans l’agenda se résume à un bloc note et des alertes que l’on se donne à soi-même  
+Lorsque le sujet est traité, on le passe à la poubelle.  
+Pourquoi ces consignes gérées par soi même ? :  
+1/Ne pas aller à un RDV sollicité par un client pour un devis peut déclencher une perte d’affaire et peut donner une image dégradée du collaborateur et/ou de la société  
+2/ Quand nous gérons plus de 10 chantiers simultanément, il faut une aide pour ne manquer aucun sujet Dans la phase d’études, après attribution, il peut y avoir plusieurs RDV de préparations, de coordinations avec les autres prestataires etc etc . Manquer un tel RDV et toute la crédibilité est détruite  
+3/ Celui en charge de la maintenance de nos équipements doit pouvoir se donner des alertes pour ne rater aucune phase dans la maintenance de nos machines etc etc  
+4- Impressions. Possibilité d’imprimer sur un format A4/A3, tous les RDV de la semaine en cours ou sur une période donnée pour tous les collaborateurs ou pour un collaborateur sélectionné  
+Les RDV de chantier sont connus au minimum 7 jours avant le RDV, on pourra donc, sur une durée à fixer, imprimer le planning des RDV de tous les collaborateurs, ou le planning de RDV d’un collaborateur

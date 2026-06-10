@@ -1,0 +1,34 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+  secret: "%env(APP_SECRET)%"
+  http_client:
+    max_host_connections: 10
+  http_cache: true
+  serializer:
+    enabled: true
+    mapping:
+      paths: ["%kernel.project_dir%/config/serializer/"]
+    # cache: serializer.mapping.cache.symfony
+    default_context:
+      enable_max_depth: true
+  #   http_client:
+  #     max_host_connections: 10
+  #   http_cache: true
+  #   serializer:
+  #     enable_annotations: true
+  #     mapping:
+  #       paths: ["%kernel.project_dir%/config/serializer/"]
+  #     cache: serializer.mapping.cache.symfony
+  #csrf_protection: true
+
+  # Note that the session will be started ONLY if you read or write from it.
+  session: true
+
+  #esi: true
+  #fragments: true
+
+when@test:
+  framework:
+    test: true
+    session:
+      storage_factory_id: session.storage.factory.mock_file
