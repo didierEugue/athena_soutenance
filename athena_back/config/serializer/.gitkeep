@@ -1,0 +1,3 @@
+# framework.yaml declare ce dossier dans serializer.mapping.paths. Git ne suit
+# pas les dossiers vides : sans ce fichier, un clone frais fait echouer
+# cache:clear avec « Could not open file or directory "config/serializer/" ».

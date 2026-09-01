@@ -1,6 +1,11 @@
 import {AuthModel} from './_models'
 
-const AUTH_LOCAL_STORAGE_KEY = 'kt-auth-react-v'
+// Doit rester identique a la cle ecrite par AuthProvider (Auth.tsx), qui a ete
+// reecrit et n'utilise plus setAuth() d'ici. Tant que les deux differaient,
+// getAuth() renvoyait toujours undefined et AUCUN appel axios ne portait de
+// token — invisible tant que l'API etait ouverte, 401 partout depuis qu'elle
+// exige un JWT.
+const AUTH_LOCAL_STORAGE_KEY = 'auth'
 
 const getAuth = (): AuthModel | undefined => {
   if (!localStorage) {

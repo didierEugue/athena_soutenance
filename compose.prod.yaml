@@ -1,0 +1,136 @@
+# Deploiement production — Athena OI
+#   docker compose -f compose.prod.yaml --env-file .env.prod up -d --build
+#
+# Pas de proxy dans cette stack : les ports 80/443 du VPS sont tenus par le
+# Caddy de la Residence Leonie (conteneur escale-proxy-1), qui sert de portier
+# commun et termine le TLS pour les trois applications hebergees ici. Les blocs
+# de domaines correspondants vivent dans
+# ../residence_leonie/docker/caddy/Caddyfile.
+#
+# Reseaux :
+#   proxy_public — reseau partage avec le portier (cree a la main, `external`)
+#   backend      — isole MariaDB (aucun port publie, joignable par api/upload)
+#
+# Les alias reseau (athena-web, athena-api, athena-upload) sont indispensables :
+# sur proxy_public, les noms de service `web` et `api` designeraient aussi ceux
+# d'Escale et de la plateforme educative, et le portier en resoudrait un au
+# hasard.
+
+name: athena
+
+services:
+  web:
+    build:
+      context: ./front
+      args:
+        VITE_API_URL: https://${API_DOMAIN}
+        VITE_UPLOAD_URL: https://${UPLOAD_DOMAIN}
+    image: athena/web:latest
+    restart: unless-stopped
+    networks:
+      proxy_public:
+        aliases: [athena-web]
+    expose:
+      - '8080'
+
+  api:
+    build:
+      context: ./athena_back
+    image: athena/api:latest
+    restart: unless-stopped
+    environment:
+      APP_ENV: prod
+      APP_DEBUG: '0'
+      APP_SECRET: ${APP_SECRET}
+      TZ: ${TZ:-UTC}
+      # MariaDB et non PostgreSQL : l'unique migration Doctrine est du SQL
+      # MySQL (AUTO_INCREMENT, ENUM, ENGINE = InnoDB).
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@database:3306/${MYSQL_DATABASE}?serverVersion=${MARIADB_SERVER_VERSION:-10.11.6-MariaDB}&charset=utf8mb4
+      JWT_SECRET_KEY: '%kernel.project_dir%/config/jwt/private.pem'
+      JWT_PUBLIC_KEY: '%kernel.project_dir%/config/jwt/public.pem'
+      JWT_PASSPHRASE: ${JWT_PASSPHRASE}
+      # Origines autorisees : nelmio_cors lit CORS_ALLOW_ORIGIN en regex.
+      CORS_ALLOW_ORIGIN: ${CORS_ALLOW_ORIGIN}
+      DEFAULT_URI: https://${API_DOMAIN}
+      MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
+    volumes:
+      - api_jwt:/app/config/jwt          # paire de cles JWT (generee au 1er boot)
+      - api_uploads:/app/public/uploads  # pieces jointes Vich
+    networks:
+      proxy_public:
+        aliases: [athena-api]
+      backend:
+    expose:
+      - '80'
+    depends_on:
+      database:
+        condition: service_healthy
+
+  # Service d'upload : routes /api/* de pieces jointes + fichiers statiques sur
+  # /uploads/*. Il partage la base de l'API (table `fichiers`), d'ou sa presence
+  # sur le reseau backend.
+  upload:
+    build:
+      context: ./api-upload-athena
+    image: athena/upload:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: '3000'
+      TZ: ${TZ:-UTC}
+      DB_HOST: database
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_NAME: ${MYSQL_DATABASE}
+      UPLOAD_DIR: /app/uploads
+      # Liste d'origines separees par des virgules (et non une regex : le
+      # paquet `cors` compare les chaines telles quelles).
+      CORS_ALLOW_ORIGIN: https://${WEB_DOMAIN}
+    volumes:
+      - upload_files:/app/uploads
+    networks:
+      proxy_public:
+        aliases: [athena-upload]
+      backend:
+    expose:
+      - '3000'
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${MYSQL_DATABASE}
+      MARIADB_USER: ${MYSQL_USER}
+      MARIADB_PASSWORD: ${MYSQL_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    volumes:
+      - database_data:/var/lib/mysql
+    networks:
+      - backend
+    # Volontairement aucun `ports:` — la base reste privee.
+
+networks:
+  # Cree hors compose (`docker network create proxy_public`) : il est partage
+  # avec les autres stacks, aucune ne doit pouvoir le supprimer.
+  proxy_public:
+    external: true
+  backend:
+    internal: true
+
+volumes:
+  database_data:
+  api_jwt:
+  api_uploads:
+  upload_files:

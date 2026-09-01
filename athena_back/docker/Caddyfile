@@ -1,0 +1,22 @@
+{
+	frankenphp
+	order php_server before file_server
+	# Pas de TLS ici : c'est le Caddy d'entree (escale-proxy-1) qui le termine.
+	auto_https off
+	admin off
+	log {
+		format json
+	}
+}
+
+{$SERVER_NAME:-:80} {
+	root /app/public
+	encode zstd gzip
+
+	# On fait confiance au proxy interne pour X-Forwarded-*
+	php_server
+
+	log {
+		format json
+	}
+}

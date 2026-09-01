@@ -22,8 +22,6 @@ class FichierController extends AbstractController
     {
         $uploadedFile = $request->files->get('file');
 
-        dd($uploadedFile);
-
         if (!$uploadedFile) {
             return new JsonResponse(['error' => 'Aucun fichier n\'a été envoyé'], 400);
         }
@@ -55,8 +53,6 @@ class FichierController extends AbstractController
             if (!file_exists($uploadPath.'/'.$newFilename)) {
                 throw new FileException('Échec du déplacement du fichier.');
             }
-
-            dd($fichier);
 
             // Persistance en base de données
             $entityManager->persist($fichier);

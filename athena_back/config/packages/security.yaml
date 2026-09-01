@@ -45,8 +45,11 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        # L'ordre compte : seule la PREMIERE regle qui correspond s'applique.
+        # /api/login_check doit rester ouvert, c'est lui qui delivre le JWT.
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
-        - { path: ^/api,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/docs,  roles: PUBLIC_ACCESS }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
 
 when@test:
     security:

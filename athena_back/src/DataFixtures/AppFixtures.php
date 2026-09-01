@@ -12,7 +12,6 @@ use App\Entity\SousMenu;
 use App\Entity\Utilisateur;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
@@ -21,8 +20,6 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $faker = Factory::create();
-
         // Tâches facturables
         $taches = [
             ['HD', 'Heure de découpe', true, 'Production'],

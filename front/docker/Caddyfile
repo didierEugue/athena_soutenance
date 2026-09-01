@@ -1,0 +1,23 @@
+{
+	# TLS et HTTP/3 sont geres par le Caddy d'entree ; ici on ne sert que des
+	# fichiers en clair sur le reseau interne.
+	auto_https off
+	admin off
+}
+
+:8080 {
+	root * /srv
+	encode zstd gzip
+
+	# Les assets Vite portent un hash dans leur nom : ils peuvent etre mis en
+	# cache indefiniment. index.html, lui, ne doit jamais l'etre, sinon un
+	# navigateur continue de demander des assets supprimes apres un deploiement.
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=31536000, immutable"
+	header /index.html Cache-Control "no-cache"
+
+	# SPA React Router : toute URL inconnue rend index.html, sinon un
+	# rafraichissement sur /ordreFabrication renvoie 404.
+	try_files {path} /index.html
+	file_server
+}

@@ -1,15 +1,10 @@
 const multer = require("multer");
 const path = require("path");
-const fs = require("fs");
-const uploadDir = "uploads";
-
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir);
-}
+const { UPLOAD_DIR } = require("../config/uploadDir");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/");
+    cb(null, UPLOAD_DIR);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;

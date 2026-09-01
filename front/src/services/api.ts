@@ -1,6 +1,7 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { AuthModel, UserModel } from "../app/modules/auth/core/_models";
+import { getAuth } from "../app/modules/auth/core/AuthHelpers";
 
 const API_URL = `${import.meta.env.VITE_API_URL}/api`;
 const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
@@ -13,6 +14,18 @@ const api = axios.create({
   },
 });
 
+// setupAxios() n'installe son intercepteur que sur l'instance globale d'axios,
+// et une instance issue d'axios.create() n'en herite pas : sans ce doublon, les
+// appels passant par `api` partiraient sans en-tete Authorization et l'API les
+// rejetterait en 401.
+api.interceptors.request.use((config) => {
+  const auth = getAuth();
+  if (auth && auth.token) {
+    config.headers.Authorization = `Bearer ${auth.token}`;
+  }
+  return config;
+});
+
 export const login = async (
   username: string,
   password: string
@@ -22,7 +35,11 @@ export const login = async (
     const { token } = response.data;
     const decodedToken = jwtDecode(token) as UserModel;
 
-    const userResponse = await api.get(`/utilisateurs/${decodedToken.id}`);
+    // saveAuth() n'est appele qu'au retour de cette fonction : le token n'est
+    // pas encore dans localStorage, l'intercepteur ne peut donc pas le poser.
+    const userResponse = await api.get(`/utilisateurs/${decodedToken.id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     const userData = userResponse.data;
 
     // Enrichir le decodedToken avec les informations complètes

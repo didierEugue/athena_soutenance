@@ -83,8 +83,12 @@ const getFichierUtilisateur = async (req, res) => {
     const utilisateurId = parseInt(req.params.utilisateurId, 10);
     const fichier = await Fichier.getByUtilisateurId(utilisateurId);
 
+    // 200 et non 404 : « cet utilisateur n'a pas encore d'avatar » est un etat
+    // normal, pas une erreur de requete. Les deux appelants du front testent
+    // deja `data.success`, et un 404 remplissait la console d'erreurs rouges
+    // a chaque affichage de la liste des utilisateurs.
     if (!fichier) {
-      return res.status(404).json({
+      return res.json({
         success: false,
         message: "Avatar non trouvé",
       });
